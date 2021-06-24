@@ -1,0 +1,95 @@
+{
+  "postcss": {
+    "preset-env": {
+      "browsers": "last 2 versions"
+    },
+    "font-magician": {
+      "hosted": [
+        "./src/assets/fonts",
+        "fonts"
+      ]
+    },
+    "cssnano": {
+      "preset": "default"
+    }
+  },
+  "webpack": {
+    "watch_dir": "./src",
+    "output_dir": "./.prebuilt",
+    "media": {
+      "input": "./src/assets/media",
+      "output": "media"
+    },
+    "app": {
+      "input": "./src/assets/app/index.js",
+      "output": "scripts/app.bundle.js"
+    },
+    "styles": {
+      "output": "styles/app.bundle.css"
+    },
+    "fonts": {
+      "input": "./src/assets/fonts",
+      "output": "fonts"
+    },
+    "vendor": {
+      "input": "./src/assets/vendor",
+      "output_js": "scripts/vendor.bundle.js",
+      "output_css": "styles/vendor.bundle.css"
+    }
+  },
+  "webpack_dist": {
+    "watch_dir": "./.prebuilt",
+    "output_dir": "./dist",
+    "index": {
+      "input": "./src/story",
+      "input_head": "./src/head-content.html",
+      "output": "./dist/index.html"
+    },
+    "media": {
+      "input": "./.prebuilt/media",
+      "output": "./dist/media"
+    },
+    "scripts": {
+      "input": "./.prebuilt/scripts",
+      "output": "./dist/scripts"
+    },
+    "styles": {
+      "input": "./.prebuilt/styles",
+      "output": "./dist/styles"
+    },
+    "fonts": {
+      "input": "./.prebuilt/fonts",
+      "output": "./dist/fonts"
+    }
+  },
+  "tweego": {
+    "dir": "./.tweego",
+    "options": [
+      "-t"
+    ],
+    "binaries": {
+      "version": "v2.1.1",
+      "win32": {
+        "name": "tweego.exe",
+        "x86": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x86.zip",
+        "x64": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-windows-x64.zip"
+      },
+      "darwin": {
+        "name": "tweego",
+        "x86": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x86.zip",
+        "x64": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x64.zip"
+      },
+      "linux": {
+        "name": "tweego",
+        "x86": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x86.zip",
+        "x64": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip"
+      }
+    },
+    "storyFormats": {
+      "sugarcube": {
+        "version": "v2.35.0",
+        "link": "https://github.com/tmedwards/sugarcube-2/releases/download/v2.35.0/sugarcube-2.35.0-for-twine-2.1-local.zip"
+      }
+    }
+  }
+}

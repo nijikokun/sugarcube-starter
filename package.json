@@ -1,0 +1,58 @@
+{
+  "name": "sugarcube-starter",
+  "version": "1.0.0",
+  "description": "Modern Starter kit for SugarCube/Twine Stories",
+  "main": "index.js",
+  "scripts": {
+    "build": "node .build/build.js",
+    "dev": "node .build/build.watch.js",
+    "start": "npm run dev"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "minify"
+    ]
+  },
+  "keywords": [
+    "twine",
+    "sugarcube",
+    "starter-kit",
+    "boilerplate",
+    "tweego"
+  ],
+  "author": "Nijiko Yonskai",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "adm-zip": "^0.5.5",
+    "babel-loader": "^8.2.2",
+    "babel-preset-minify": "^0.5.1",
+    "chokidar": "^3.5.2",
+    "copy-webpack-plugin": "^9.0.0",
+    "cross-spawn": "^7.0.3",
+    "css-loader": "^5.2.6",
+    "cssnano": "^5.0.6",
+    "debounce": "^1.2.1",
+    "decompress": "^4.2.1",
+    "del": "^6.0.0",
+    "got": "^11.8.2",
+    "mini-css-extract-plugin": "^1.6.0",
+    "mvdir": "^1.0.21",
+    "open": "^8.2.1",
+    "postcss": "^8.3.5",
+    "postcss-font-magician": "^3.0.0",
+    "postcss-loader": "^6.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.35.1",
+    "sass-loader": "^12.1.0",
+    "slive-server": "^1.0.4",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-concat-files-plugin": "^0.5.2",
+    "webpack-shell-plugin-next": "^2.2.2"
+  },
+  "dependencies": {}
+}
