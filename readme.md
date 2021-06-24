@@ -1,6 +1,6 @@
 # SugarCube Starter
 
-The easiest starter kit for building SugarCube stories.
+The easiest starter kit for building SugarCube stories with Twine / Tweego.
 
 ## Features
 
@@ -24,21 +24,20 @@ Built in to this template are a number of frameworks to get you going.
 
 - Node.js 14+
 
-## Getting Started
+## 🚀 Getting Started
 
 1. Clone this repository: `npx degit nijikokun/sugarcube-starter <project-name>`
 2. Run using `npm start`
 
-## Commands
+## 👩‍💻 Commands
 
 - `npm start` - Alias for `npm run dev`
 - `npm run dev` - Starts development server and watches `src` directory.
 - `npm run build` - Compiles and bundles the story in the `dist` directory.
 
-## Directory Structure
+## 📁 Directory Structure
 
 - [`.build`](.build) — Webpack configuration and Build scripts
-- [`.tweego`](.tweego) — [Tweego](https://www.motoslave.net/tweego/) files go here
 - [`src`](./src) — Story and Story Assets directory
 - [`src/assets`](./src/assets) — Story Assets (Scripts, Styles, Media, Fonts)
 - [`src/assets/app`](./src/assets/app) — Story JavaScripts and Stylesheets
@@ -51,10 +50,11 @@ Built in to this template are a number of frameworks to get you going.
 
 ### Auto-Generated Directories
 
+- `.tweego` — [Tweego](https://www.motoslave.net/tweego/) installation and story formats are installed here
 - `.prebuilt` — Staging directory, files are processed and moved to `dist`
 - `dist` — Compiled output directory
 
-## How To
+## 🙋‍♂️ How To
 
 ### How do I install macros?
 
@@ -85,8 +85,31 @@ Paste the following snippet into [`src/head-content.html`](./src/head-content.ht
 
 and replace `YOUR_TAG_HERE` with your Google Analytics ID (`UA-########`).
 
-## Roadmap
+## 🛣 Roadmap
 
+- [x] Automatically install tweego for users so they don't have to.
+- [ ] Add typescript support out of the box.
 - [ ] Add configuration, commands and build process for production.
-- [ ] Automatically install tweego for users so they don't have to.
 - [ ] Add support for compiling to Electron application.
+
+## 🤝 Helpful Resources
+
+- [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)
+- [Hogart's SugarCube Macros and Goodies](https://github.com/hogart/sugar-cube-utils)
+- [SjoerdHekking's Custom Macros](https://github.com/SjoerdHekking/custom-macros-sugarcube2)
+- [GwenTastic's Custom Macros](https://github.com/GwenTastic/Custom-Macros-for-Sugarcube)
+- [Cycy Custom Macros](https://github.com/cyrusfirheir/cycy-wrote-custom-macros)
+- [HiEv SugarCube Sample Code](https://qjzhvmqlzvoo5lqnrvuhmg-on.drv.tw/UInv/Sample_Code.html#Main%20Menu)
+- [Akjosch SugarCube Resources](https://github.com/Akjosch/sugarcube-modules)
+- [Mike Westhad SugarCube Resources](https://github.com/mikewesthad/twine-resources)
+- [HiEv Universal Inventory](https://github.com/HiEv/UInv)
+
+## Acknowledgements
+
+We are grateful to these individuals for their ideas and contributions.
+
+- [@ryceg](https://github.com/ryceg)
+
+## License
+
+Licensed under the MIT License.

@@ -1,7 +1,7 @@
 {
   "name": "sugarcube-starter",
   "version": "1.0.0",
-  "description": "Modern Starter kit for SugarCube/Twine Stories",
+  "description": "Modern Starter kit for SugarCube",
   "main": "index.js",
   "scripts": {
     "build": "node .build/build.js",
