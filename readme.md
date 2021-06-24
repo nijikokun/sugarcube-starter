@@ -17,6 +17,7 @@ The easiest starter kit for building SugarCube stories with Twine / Tweego.
 Built in to this template are a number of frameworks to get you going.
 
 - [Webpack v5](https://webpack.js.org/)
+- [Typescript](https://www.typescriptlang.org/)
 - [Babel](https://babeljs.io/) with [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env)
 - [Sass](https://sass-lang.com/) with [Modern CSS Support](https://github.com/csstools/postcss-preset-env#readme) and [Font Magician Support](https://github.com/csstools/postcss-font-magician)
 
@@ -85,10 +86,19 @@ Paste the following snippet into [`src/head-content.html`](./src/head-content.ht
 
 and replace `YOUR_TAG_HERE` with your Google Analytics ID (`UA-########`).
 
+### How do I change the app directory name?
+
+I don't suggest doing this, but if you really want to... You need to modify all instances of `src/assets/app` in two locations:
+
+- `config.json`
+- `tsconfig.json`
+
+Good luck!
+
 ## 🛣 Roadmap
 
 - [x] Automatically install tweego for users so they don't have to.
-- [ ] Add typescript support out of the box.
+- [x] Add typescript support out of the box.
 - [ ] Add configuration, commands and build process for production.
 - [ ] Add support for compiling to Electron application.
 
@@ -109,6 +119,7 @@ and replace `YOUR_TAG_HERE` with your Google Analytics ID (`UA-########`).
 We are grateful to these individuals for their ideas and contributions.
 
 - [@ryceg](https://github.com/ryceg)
+- [@cyrusfirheir](https://github.com/cyrusfirheir)
 
 ## License
 

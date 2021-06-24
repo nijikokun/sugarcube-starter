@@ -76,9 +76,9 @@ const copyAssets = () =>
   });
 
 const rulesScripts = {
-  test: /\.(js)$/,
+  test: /\.(ts)$/,
   exclude: /node_modules/,
-  use: ["babel-loader"],
+  use: ["ts-loader"],
 };
 
 const rulesStyles = {
@@ -102,7 +102,7 @@ module.exports = {
     rules: [rulesScripts, rulesStyles],
   },
   resolve: {
-    extensions: [".js"],
+    extensions: [".tsx", ".ts", ".js"],
   },
   output: {
     filename: config.webpack.app.output,

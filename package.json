@@ -4,7 +4,7 @@
   "description": "Modern Starter kit for SugarCube",
   "main": "index.js",
   "scripts": {
-    "build": "node .build/build.js",
+    "build": "node .build/build.prod.js",
     "dev": "node .build/build.watch.js",
     "start": "npm run dev"
   },
@@ -26,7 +26,6 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
-    "adm-zip": "^0.5.5",
     "babel-loader": "^8.2.2",
     "babel-preset-minify": "^0.5.1",
     "chokidar": "^3.5.2",
@@ -48,11 +47,12 @@
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
     "slive-server": "^1.0.4",
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.40.0",
     "webpack-cli": "^4.7.2",
-    "webpack-concat-files-plugin": "^0.5.2",
-    "webpack-shell-plugin-next": "^2.2.2"
+    "webpack-concat-files-plugin": "^0.5.2"
   },
   "dependencies": {}
 }

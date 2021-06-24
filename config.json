@@ -21,7 +21,7 @@
       "output": "media"
     },
     "app": {
-      "input": "./src/assets/app/index.js",
+      "input": "./src/assets/app/index.ts",
       "output": "scripts/app.bundle.js"
     },
     "styles": {
