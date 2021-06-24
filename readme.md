@@ -18,7 +18,7 @@ Built in to this template are a number of frameworks to get you going.
 
 - [Webpack v5](https://webpack.js.org/)
 - [Typescript](https://www.typescriptlang.org/)
-- [Babel](https://babeljs.io/) with [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env)
+- [Babel](https://babeljs.io/) with [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for vendor scripts
 - [Sass](https://sass-lang.com/) with [Modern CSS Support](https://github.com/csstools/postcss-preset-env#readme) and [Font Magician Support](https://github.com/csstools/postcss-font-magician)
 
 ## Requirements
@@ -114,13 +114,13 @@ Good luck!
 - [Mike Westhad SugarCube Resources](https://github.com/mikewesthad/twine-resources)
 - [HiEv Universal Inventory](https://github.com/HiEv/UInv)
 
-## Acknowledgements
+## 💜 Acknowledgements
 
 We are grateful to these individuals for their ideas and contributions.
 
 - [@ryceg](https://github.com/ryceg)
 - [@cyrusfirheir](https://github.com/cyrusfirheir)
 
-## License
+## 📝 License
 
 Licensed under the MIT License.
