@@ -28,7 +28,8 @@ Built in to this template are a number of frameworks to get you going.
 ## 🚀 Getting Started
 
 1. Clone this repository: `npx degit nijikokun/sugarcube-starter <project-name>`
-2. Run using `npm start`
+2. `npm install`
+3. Run using `npm start`
 
 ## 👩‍💻 Commands
 
