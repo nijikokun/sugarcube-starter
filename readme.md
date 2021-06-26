@@ -200,7 +200,8 @@ Good luck!
 
 - [x] Automatically install tweego for users so they don't have to.
 - [x] Add typescript support out of the box.
-- [ ] Add configuration, commands and build process for production.
+- [x] Add configuration, commands and build process for production.
+- [ ] Add support for packaging `dist` directory.
 - [ ] Add support for compiling to Electron application.
 
 ## 🤝 Helpful Resources
