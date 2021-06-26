@@ -1,8 +1,10 @@
+<img src="src/assets/media/favicon.png" width="80" />
+
 # SugarCube Starter
 
 The easiest starter kit for building SugarCube stories with Twine / Tweego.
 
-## Features
+## 🎨 Features
 
 - Automatic Tweego & SugarCube Install ✅
 - Fully Configurable ✅
@@ -12,7 +14,7 @@ The easiest starter kit for building SugarCube stories with Twine / Tweego.
 - Directory for third-party scripts ✅
 - Up to date packages and frameworks ✅
 
-## Tech Stack
+## 🗃 Tech Stack
 
 Built in to this template are a number of frameworks to get you going.
 
@@ -21,9 +23,9 @@ Built in to this template are a number of frameworks to get you going.
 - [Babel](https://babeljs.io/) with [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) for vendor scripts
 - [Sass](https://sass-lang.com/) with [Modern CSS Support](https://github.com/csstools/postcss-preset-env#readme) and [Font Magician Support](https://github.com/csstools/postcss-font-magician)
 
-## Requirements
+## ℹ Requirements
 
-- Node.js 14+
+- [Node.js](https://nodejs.org/en/) 14+
 
 ## 🚀 Getting Started
 
@@ -58,23 +60,87 @@ Built in to this template are a number of frameworks to get you going.
 
 ## 🙋‍♂️ How To
 
-### How do I install macros?
+<details>
+<summary>How do I disable Debug View?</summary>
+<p>
 
-Extract / place them into `src/assets/vendor`
+![](https://i.imgur.com/titQhIR.png)
 
-### How do I link to media files?
+**Option One** (Production Ready)
 
-Images and videos stored under `src/assets/media` get moved to the root directory under `media` which means that `favicon.png` ends up going from:
+Create `src/story/PassageReady.twee` and put the following code inside:
+
+```js
+:: PassageReady
+<<run DebugView.disable()>>
+```
+
+**Option Two** (Production Ready)
+
+Open `src/story/Start.twee` and add the following code:
+
+```js
+::StoryJavaScript[script];
+predisplay["debug-disable"] = function (taskName) {
+  DebugView.disable();
+};
+```
+
+**Option Three** (Development)
+
+Open `src/story/Start.twee` and add the following code:
+
+```js
+::StoryJavaScript[script](function () {
+  Setting.addHeader("Debug Settings");
+
+  function initSettingDebug() {
+    Config.debug = settings.debug;
+  }
+  Setting.addToggle("debug", {
+    label: "Enable test/debug mode?",
+    default: false,
+    onInit: initSettingDebug,
+    onChange: function () {
+      initSettingDebug();
+      window.location.reload();
+    },
+  });
+})();
+```
+
+</p>
+</details>
+
+<details>
+<summary>How do I install macros?</summary>
+<p>
+
+Macros scripts and styles go into `src/assets/vendor`
+
+</p>
+</details>
+
+<details>
+<summary>How do I link to media files?</summary>
+<p>
+
+To reference images and media at `src/assets/media/<asset_path>` you'll use `media/<asset_path>`. For eample:
 
 - `src/assets/media/favicon.png` → `media/favicon.png`
 
-So to link to `favicon.png` you'd do ([`example`](./src/head-content.html)):
+Here is an example in html ([`example`](./src/head-content.html)):
 
 ```html
 <link rel="icon" type="image/png" href="media/favicon.png" />
 ```
 
-### How do I add Google Analytics?
+</p>
+</details>
+  
+<details>
+<summary>How do I add Google Analytics?</summary>
+<p>
 
 Paste the following snippet into [`src/head-content.html`](./src/head-content.html):
 
@@ -87,7 +153,13 @@ Paste the following snippet into [`src/head-content.html`](./src/head-content.ht
 
 and replace `YOUR_TAG_HERE` with your Google Analytics ID (`UA-########`).
 
-### How do I change the app directory name?
+</p>
+</details>
+  
+  
+<details>
+<summary>How do I change the app directory name?</summary>
+<p>
 
 I don't suggest doing this, but if you really want to... You need to modify all instances of `src/assets/app` in two locations:
 
@@ -95,6 +167,9 @@ I don't suggest doing this, but if you really want to... You need to modify all 
 - `tsconfig.json`
 
 Good luck!
+
+</p>
+</details>
 
 ## 🛣 Roadmap
 
