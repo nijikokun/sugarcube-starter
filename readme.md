@@ -138,6 +138,27 @@ Open `src/story/Start.twee` and add the following code:
 </details>
 
 <details>
+<summary>How should I initialize variables?</summary>
+<p>
+
+You should initialize your story variables using the [`StoryInit`](https://www.motoslave.net/sugarcube/2/docs/#special-passage-storyinit) passage.
+
+A good place to start is in `src/story/Start.twee`:
+
+```ejs
+:: StoryInit
+<<set $health = 100>>
+<<set $maxHealth = 100>>
+
+:: Start
+
+HP: <<= $health>> / <<= $maxHealth>>
+```
+
+</p>
+</details>
+
+<details>
 <summary>How do I install macros?</summary>
 <p>
 
