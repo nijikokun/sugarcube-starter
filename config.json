@@ -9,8 +9,8 @@
         "fonts"
       ]
     },
-    "cssnano": {
-      "preset": "default"
+    "csso": {
+      "restructure": false
     }
   },
   "webpack": {
