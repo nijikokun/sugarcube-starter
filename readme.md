@@ -1,4 +1,4 @@
-<img src="src/assets/media/favicon.png" width="80" />
+<img src="src/assets/media/favicon.png" width="120" align="right" />
 
 # SugarCube Starter
 
@@ -29,9 +29,22 @@ Built in to this template are a number of frameworks to get you going.
 
 ## 🚀 Getting Started
 
-1. Clone this repository: `npx degit nijikokun/sugarcube-starter <project-name>`
-2. `npm install`
-3. Run using `npm start`
+1. Clone the repository
+    ```
+    npx degit nijikokun/sugarcube-starter <project-name>
+    ```
+2. Install modules
+    ```
+    npm install
+    ````
+3. Start developing 
+    ```
+    npm start
+    ```
+
+**New to SugarCube?**
+
+- Check out our [SugarCube Basics](https://github.com/nijikokun/sugarcube-starter/wiki/SugarCube-Basics)
 
 ## 👩‍💻 Commands
 
@@ -179,6 +192,16 @@ Good luck!
 - [ ] Add support for compiling to Electron application.
 
 ## 🤝 Helpful Resources
+  
+Starter Kit Resources
+
+- [Niji's SugarCube Basics](https://github.com/nijikokun/sugarcube-starter/wiki/SugarCube-Basics)
+  
+Official Resources
+  
+- [SugarCube Docs](https://www.motoslave.net/sugarcube/2/docs/)
+  
+Third-Party Resources
 
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)
 - [Hogart's SugarCube Macros and Goodies](https://github.com/hogart/sugar-cube-utils)
