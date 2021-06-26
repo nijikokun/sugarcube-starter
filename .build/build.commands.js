@@ -92,7 +92,7 @@ const runWebpack = (config) => {
   return new Promise((res, rej) => {
     webpack(config, (err, stats) => {
       if (err || stats.hasErrors()) {
-        return rej([err, null]);
+        return rej([err || stats.errors, null]);
       }
 
       return res([null, stats]);
