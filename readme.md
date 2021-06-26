@@ -76,6 +76,25 @@ Built in to this template are a number of frameworks to get you going.
 ## 🙋‍♂️ How To
 
 <details>
+<summary>How do I update?</summary>
+<p>
+
+**Before continuing make sure you back up your existing code!**
+
+1. Download the latest [release](https://github.com/nijikokun/sugarcube-starter/archive/refs/heads/main.zip)
+1. Copy over the `package.json`, `config.json`, `tsconfig.json` files and the `.build` directory.
+1. Run `npm start`
+
+And that's it!
+
+**Note** You might want to use something like [jsondiff](http://www.jsondiff.com/) for the `config.json` if you have made changes.
+
+</p>
+</details>
+
+---
+
+<details>
 <summary>How do I disable Debug View?</summary>
 <p>
 
@@ -137,6 +156,8 @@ Open `src/story/Start.twee` and add the following code:
 </p>
 </details>
 
+---
+
 <details>
 <summary>How should I initialize variables?</summary>
 <p>
@@ -158,6 +179,8 @@ HP: <<= $health>> / <<= $maxHealth>>
 </p>
 </details>
 
+---
+
 <details>
 <summary>How do I install macros?</summary>
 <p>
@@ -166,6 +189,8 @@ Macros scripts and styles go into `src/assets/vendor`
 
 </p>
 </details>
+
+---
 
 <details>
 <summary>How do I link to media files?</summary>
@@ -183,7 +208,9 @@ Here is an example in html ([`example`](./src/head-content.html)):
 
 </p>
 </details>
-  
+
+---
+
 <details>
 <summary>How do I add Google Analytics?</summary>
 <p>
@@ -201,8 +228,9 @@ and replace `YOUR_TAG_HERE` with your Google Analytics ID (`UA-########`).
 
 </p>
 </details>
-  
-  
+
+---
+
 <details>
 <summary>How do I change the app directory name?</summary>
 <p>
