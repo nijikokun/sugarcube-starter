@@ -6,6 +6,7 @@ const {
 } = require("./build.commands");
 
 (async () => {
+  // Verify tweego is installed
   await verifyTweegoInstall();
 
   // Run webpack

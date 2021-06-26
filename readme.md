@@ -30,17 +30,17 @@ Built in to this template are a number of frameworks to get you going.
 ## 🚀 Getting Started
 
 1. Clone the repository
-    ```
-    npx degit nijikokun/sugarcube-starter <project-name>
-    ```
+   ```
+   npx degit nijikokun/sugarcube-starter <project-name>
+   ```
 2. Install modules
-    ```
-    npm install
-    ````
-3. Start developing 
-    ```
-    npm start
-    ```
+   ```
+   npm install
+   ```
+3. Start developing
+   ```
+   npm start
+   ```
 
 **New to SugarCube?**
 
@@ -50,7 +50,9 @@ Built in to this template are a number of frameworks to get you going.
 
 - `npm start` - Alias for `npm run dev`
 - `npm run dev` - Starts development server and watches `src` directory.
+- `npm run dev:prod` - Starts development server and watches `src` directory in production mode (`NODE_ENV=production`).
 - `npm run build` - Compiles and bundles the story in the `dist` directory.
+- `npm run build:prod` - Compiles and bundles the story in the `dist` directory for production.
 
 ## 📁 Directory Structure
 
@@ -77,9 +79,19 @@ Built in to this template are a number of frameworks to get you going.
 <summary>How do I disable Debug View?</summary>
 <p>
 
+Debug View looks like this:
+
 ![](https://i.imgur.com/titQhIR.png)
 
-**Option One** (Production Ready)
+**Option One** (Production Mode)
+
+Run development in `production` mode:
+
+```
+npm run dev:prod
+```
+
+**Option Two**
 
 Create `src/story/PassageReady.twee` and put the following code inside:
 
@@ -88,7 +100,7 @@ Create `src/story/PassageReady.twee` and put the following code inside:
 <<run DebugView.disable()>>
 ```
 
-**Option Two** (Production Ready)
+**Option Three**
 
 Open `src/story/Start.twee` and add the following code:
 
@@ -99,7 +111,7 @@ predisplay["debug-disable"] = function (taskName) {
 };
 ```
 
-**Option Three** (Development)
+**Option Four**
 
 Open `src/story/Start.twee` and add the following code:
 
@@ -192,15 +204,15 @@ Good luck!
 - [ ] Add support for compiling to Electron application.
 
 ## 🤝 Helpful Resources
-  
+
 Starter Kit Resources
 
 - [Niji's SugarCube Basics](https://github.com/nijikokun/sugarcube-starter/wiki/SugarCube-Basics)
-  
+
 Official Resources
-  
+
 - [SugarCube Docs](https://www.motoslave.net/sugarcube/2/docs/)
-  
+
 Third-Party Resources
 
 - [Chapel's Custom Macro Collection](https://github.com/ChapelR/custom-macros-for-sugarcube-2)

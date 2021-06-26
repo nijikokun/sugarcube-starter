@@ -4,8 +4,10 @@
   "description": "Modern Starter kit for SugarCube",
   "main": "index.js",
   "scripts": {
-    "build": "node .build/build.prod.js",
-    "dev": "node .build/build.watch.js",
+    "build": "node .build/build.run.js",
+    "build:prod": "cross-env NODE_ENV=production npm run build",
+    "dev": "cross-env NODE_ENV=development node .build/build.watch.js",
+    "dev:prod": "cross-env NODE_ENV=production node .build/build.watch.js",
     "start": "npm run dev"
   },
   "babel": {
@@ -30,6 +32,7 @@
     "babel-preset-minify": "^0.5.1",
     "chokidar": "^3.5.2",
     "copy-webpack-plugin": "^9.0.0",
+    "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "css-loader": "^5.2.6",
     "debounce": "^1.2.1",

@@ -40,18 +40,25 @@ const watchDirectory = (directory, onChangeFn) => {
 };
 
 const runTweego = () => {
-  return spawn.sync(
-    installer.getTweegoBinaryPath(),
-    [
-      ...config.tweego.options,
-      `--head=${config.webpack_dist.index.input_head}`,
-      `--module=${config.webpack_dist.styles.output}`,
-      `--module=${config.webpack_dist.scripts.output}`,
-      `--output=${config.webpack_dist.index.output}`,
-      `${config.webpack_dist.index.input}`,
-    ],
-    { stdio: "inherit" }
-  );
+  let options = [
+    ...config.tweego.options,
+    `--head=${config.webpack_dist.index.input_head}`,
+    `--module=${config.webpack_dist.styles.output}`,
+    `--module=${config.webpack_dist.scripts.output}`,
+    `--output=${config.webpack_dist.index.output}`,
+  ];
+
+  // Add debug mode when debug
+  if (process.env.NODE_ENV === "development") {
+    options.push(`-t`);
+  }
+
+  // Add input file
+  options.push(config.webpack_dist.index.input);
+
+  return spawn.sync(installer.getTweegoBinaryPath(), options, {
+    stdio: "inherit",
+  });
 };
 
 const moveFiles = async () => {

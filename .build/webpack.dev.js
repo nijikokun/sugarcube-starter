@@ -92,7 +92,7 @@ const rulesStyles = {
 };
 
 module.exports = {
-  mode: "development",
+  mode: process.env.NODE_ENV,
   entry: {
     app: path.resolve(__dirname, "..", config.webpack.app.input),
   },
