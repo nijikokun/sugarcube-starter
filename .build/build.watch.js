@@ -98,7 +98,11 @@ class Builder {
     this.running = false;
 
     if (this.pendingBuild) {
-      await this.runBuild(this.pendingBuild);
+      try {
+        await this.runBuild(this.pendingBuild);
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 }

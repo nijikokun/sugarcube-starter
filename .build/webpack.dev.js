@@ -78,13 +78,15 @@ const copyAssets = () =>
 const rulesScripts = {
   test: /\.(ts)$/,
   exclude: /node_modules/,
-  use: ["ts-loader"],
+  // here we only transpile to avoid out of memory issues
+  use: [{ loader: "ts-loader", options: { transpileOnly: true } }],
 };
 
 const rulesStyles = {
   test: /\.(scss|sass|css)$/,
   use: [
     MiniCssExtractPlugin.loader,
+    // only use url: false to avoid image processing issues
     { loader: "css-loader", options: { url: false } },
     postcssConfig,
     "sass-loader",

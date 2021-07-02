@@ -3,12 +3,6 @@
     "preset-env": {
       "browsers": "last 2 versions"
     },
-    "font-magician": {
-      "hosted": [
-        "./src/assets/fonts",
-        "fonts"
-      ]
-    },
     "csso": {
       "restructure": false
     }

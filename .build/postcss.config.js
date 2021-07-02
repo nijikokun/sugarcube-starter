@@ -5,7 +5,6 @@ module.exports = {
   options: {
     postcssOptions: {
       plugins: [
-        require("postcss-font-magician")(config.postcss["font-magician"]),
         require("postcss-preset-env")(config.postcss["preset-env"]),
         require("postcss-csso")(config.postcss.csso),
       ],
