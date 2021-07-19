@@ -44,7 +44,6 @@ const runTweego = () => {
     ...config.tweego.options,
     `--head=${config.webpack_dist.index.input_head}`,
     `--module=${config.webpack_dist.styles.output}`,
-    `--module=${config.webpack_dist.scripts.output}`,
     `--output=${config.webpack_dist.index.output}`,
   ];
 
@@ -55,6 +54,9 @@ const runTweego = () => {
 
   // Add input file
   options.push(config.webpack_dist.index.input);
+
+  // Add scripts
+  options.push(config.webpack_dist.scripts.output);
 
   return spawn.sync(installer.getTweegoBinaryPath(), options, {
     stdio: "inherit",
