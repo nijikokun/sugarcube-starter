@@ -23,7 +23,11 @@ const verifyTweegoInstall = async () => {
       fs.accessSync(tweego, fs.constants.X_OK);
     } catch (err) {
       console.error(`${tweego} does not have permissions to execute.
-    If you are on a Unix-based system you can grant permissions with 'chmod +x ${tweego}'`);
+    
+      Run the following command to ensure tweego is an executable:
+    
+    \tchmod +x ${tweego}
+`);
       process.exit(1);
     }
   }
@@ -93,8 +97,22 @@ const moveFiles = async () => {
 const runWebpack = (config) => {
   return new Promise((res, rej) => {
     webpack(config, (err, stats) => {
-      if (err || stats.hasErrors()) {
-        return rej([err || stats.errors, null]);
+      if (err) {
+        if (err.details) {
+          console.error(`[builder] [webpack] ${err.details}`);
+        }
+
+        return [err.stack || err, null];
+      }
+      
+      const info = stats.toJson();
+
+      if (stats.hasErrors()) {
+        return [info.errors, null];
+      }
+    
+      if (stats.hasWarnings()) {
+        console.warn(`[builder] [webpack] ${info.warnings}`);
       }
 
       return res([null, stats]);
