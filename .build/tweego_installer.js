@@ -1,14 +1,14 @@
-const { promisify } = require("util");
-const decompress = require("decompress");
-const fs = require("fs");
-const del = require("del");
-const got = require("got");
-const stream = require("stream");
+import decompress from "decompress";
+import fs from "fs";
+import del from "del";
+import got from "got";
+import stream from "stream";
+import { config } from "./build_config.js";
+import { promisify } from "util";
+
 const pipeline = promisify(stream.pipeline);
 
-const config = require("../config.json");
-
-class Installer {
+export class Installer {
   static async downloadAndExtract(link, to) {
     const filePath = link.split("/").pop();
 
@@ -59,5 +59,3 @@ class Installer {
     ].join("/");
   }
 }
-
-module.exports = Installer;

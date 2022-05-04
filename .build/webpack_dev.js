@@ -1,11 +1,15 @@
-const path = require("path");
-const config = require("../config.json");
-const babel = require("@babel/core");
-const postcss = require("postcss");
-const postcssConfig = require("./postcss.config");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const WebpackConcatPlugin = require("webpack-concat-files-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+import path from "path";
+import babel from "@babel/core";
+import postcss from "postcss";
+import { fileURLToPath } from 'url';
+import { config } from "./build_config.js";
+import { postcssConfig } from "./postcss_config.js";
+import CopyPlugin from "copy-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import WebpackConcatenateFilesPlugin from "webpack-concat-files-plugin";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const extractCSS = () =>
   new MiniCssExtractPlugin({
@@ -13,7 +17,7 @@ const extractCSS = () =>
   });
 
 const concatVendorFiles = () =>
-  new WebpackConcatPlugin({
+  new WebpackConcatenateFilesPlugin({
     bundles: [
       {
         src: [[config.webpack.vendor.input, "**/*.js"].join("/")],
@@ -93,7 +97,7 @@ const rulesStyles = {
   ],
 };
 
-module.exports = {
+export const webpackConfig = {
   mode: process.env.NODE_ENV,
   entry: {
     app: path.resolve(__dirname, "..", config.webpack.app.input),

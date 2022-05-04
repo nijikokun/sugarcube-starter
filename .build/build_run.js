@@ -1,9 +1,9 @@
-const {
+import {
   verifyTweegoInstall,
   runWebpackDev,
   runTweego,
   moveFiles,
-} = require("./build.commands");
+}  from "./build_commands.js";
 
 (async () => {
   // Verify tweego is installed

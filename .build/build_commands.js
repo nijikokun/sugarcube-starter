@@ -1,20 +1,21 @@
-const chokidar = require("chokidar");
-const webpack = require("webpack");
-const spawn = require("cross-spawn");
-const mvdir = require("mvdir");
-const slive = require("slive-server");
-const open = require("open");
-const del = require("del");
-const fs = require("fs");
-const installer = require("./tweego.installer");
-const config = require("../config.json");
+import fs from "fs";
+import del from "del";
+import open from "open";
+import mvdir from "mvdir";
+import webpack from 'webpack';
+import spawn from "cross-spawn";
+import chokidar from "chokidar";
+import SliveServer from "slive-server";
+import { Installer } from "./tweego_Installer.js";
+import { config } from "./build_config.js";
+import { webpackConfig } from "./webpack_dev.js";
 
 const verifyTweegoInstall = async () => {
-  const tweego = installer.getTweegoBinaryPath();
+  const tweego = Installer.getTweegoBinaryPath();
 
   // Verify correct tweego installation
   if (!fs.existsSync(tweego)) {
-    await installer.install();
+    await Installer.install();
   }
 
   // Verify executable permissions on unix systems.
@@ -62,7 +63,8 @@ const runTweego = () => {
   // Add scripts
   options.push(config.webpack_dist.scripts.output);
 
-  return spawn.sync(installer.getTweegoBinaryPath(), options, {
+  return spawn.sync(Installer.getTweegoBinaryPath(), options, {
+    env: { ...process.env, TWEEGO_PATH: [config.tweego.dir, 'storyformats'].join('/') },
     stdio: "inherit",
   });
 };
@@ -121,7 +123,7 @@ const runWebpack = (config) => {
 };
 
 const runWebpackDev = () => {
-  return runWebpack(require("./webpack.dev"));
+  return runWebpack(webpackConfig);
 };
 
 const runLocalServer = () => {
@@ -129,14 +131,14 @@ const runLocalServer = () => {
     host: "0.0.0.0",
     port: 4321,
     wait: 500,
-    watch: config.webpack_dist.output_dir,
+    watch: [config.webpack_dist.output_dir, '.fake'].join('/'), // we will be manually reloading the server, so point to a fake directory.
     root: config.webpack_dist.output_dir,
-    verbose: false,
+    verbose: true,
     ...(config.server || {}),
   };
 
   // Start Server
-  slive.start(serverConfig);
+  SliveServer.start(serverConfig);
 
   // Open in browser
   if (!serverConfig.disable_open) {
@@ -145,10 +147,10 @@ const runLocalServer = () => {
   }
 
   // Return instance
-  return slive;
+  return SliveServer;
 };
 
-module.exports = {
+export {
   verifyTweegoInstall,
   runLocalServer,
   runWebpack,

@@ -1,14 +1,16 @@
-const config = require("../config.json");
-const debounce = require("debounce");
+import { config } from "./build_config.js";
+import * as Debounce from "debounce";
 
-const {
+const debounce = Debounce.default;
+
+import {
   verifyTweegoInstall,
   watchDirectory,
   runWebpackDev,
   runLocalServer,
   runTweego,
   moveFiles,
-} = require("./build.commands");
+} from "./build_commands.js";
 
 class Builder {
   constructor() {
@@ -96,6 +98,11 @@ class Builder {
     // Complete build
     console.log(`[builder] Build finished.`);
     this.running = false;
+
+    // First build the server does not exist yet.
+    if (this.server) {
+      this.server.reload();
+    }
 
     if (this.pendingBuild) {
       try {
