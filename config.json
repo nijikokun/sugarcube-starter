@@ -79,8 +79,8 @@
     },
     "storyFormats": {
       "sugarcube": {
-        "version": "v2.35.0",
-        "link": "https://github.com/tmedwards/sugarcube-2/releases/download/v2.35.0/sugarcube-2.35.0-for-twine-2.1-local.zip"
+        "version": "v2.36.1",
+        "link": "https://github.com/tmedwards/sugarcube-2/releases/download/v2.36.1/sugarcube-2.36.1-for-twine-2.1-local.zip"
       }
     }
   }
