@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import spawn from "cross-spawn";
 import chokidar from "chokidar";
 import SliveServer from "slive-server";
-import { Installer } from "./tweego_Installer.js";
+import { Installer } from "./tweego_installer.js";
 import { config } from "./build_config.js";
 import { webpackConfig } from "./webpack_dev.js";
 
