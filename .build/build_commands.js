@@ -101,7 +101,7 @@ const runWebpack = (config) => {
     webpack(config, (err, stats) => {
       if (err) {
         if (err.details) {
-          console.error(`[builder] [webpack] ${err.details}`);
+          console.error(`[builder] [webpack]`, err);
         }
 
         return [err.stack || err, null];
@@ -114,7 +114,7 @@ const runWebpack = (config) => {
       }
     
       if (stats.hasWarnings()) {
-        console.warn(`[builder] [webpack] ${info.warnings}`);
+        console.warn(`[builder] [webpack]`, info);
       }
 
       return res([null, stats]);
