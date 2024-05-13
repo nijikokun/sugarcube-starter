@@ -97,12 +97,14 @@ const rulesStyles = {
   ],
 };
 
+var mode = process.env.NODE_ENV || 'development';
+
 export const webpackConfig = {
-  mode: process.env.NODE_ENV,
+  mode,
   entry: {
     app: path.resolve(__dirname, "..", config.webpack.app.input),
   },
-  devtool: "inline-source-map",
+  devtool: (mode === "development") ? "inline-source-map" : false,
   plugins: [extractCSS(), concatVendorFiles(), copyAssets()],
   module: {
     rules: [rulesScripts, rulesStyles],
@@ -114,5 +116,10 @@ export const webpackConfig = {
     filename: config.webpack.app.output,
     path: path.resolve(__dirname, "..", config.webpack.output_dir),
     clean: true,
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 5120000,
+    maxAssetSize: 5120000
   },
 };
