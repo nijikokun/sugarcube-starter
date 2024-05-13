@@ -1,5 +1,6 @@
 import { config } from "./build_config.js";
 import * as Debounce from "debounce";
+import chalk from "chalk";
 
 const debounce = Debounce.default;
 
@@ -36,7 +37,7 @@ class Builder {
   }
 
   async stop() {
-    console.log(`[builder] Shutting down.`);
+    console.log(chalk.gray(`[    server]`), `Shutting down.`);
     this.shuttingDown = true;
     this.pendingBuild = false;
     await this.stopWatching();
@@ -44,17 +45,17 @@ class Builder {
   }
 
   async startLocalServer() {
-    console.log(`[builder] Starting local server.`);
+    console.log(chalk.gray(`[    server]`), `Starting local server.`, `\n`);
     this.server = runLocalServer();
   }
 
   async stopLocalServer() {
-    console.log(`[builder] Stopped local server.`);
+    console.log(chalk.gray(`[    server]`), `Stopped local server.`);
     this.server.shutdown();
   }
 
   async startWatching() {
-    console.log(`[builder] Starting watcher.`);
+    console.log(chalk.gray(`[    server]`), `Starting watcher.`);
     this.process = watchDirectory(
       config["webpack"]["watch_dir"],
       debounce((e, p) => this.runBuild(e, p), 500)
@@ -62,7 +63,7 @@ class Builder {
   }
 
   async stopWatching() {
-    console.log(`[builder] Stopped watching.`);
+    console.log(chalk.gray(`[    server]`), `Stopped watching.`);
     return this.process.close();
   }
 
@@ -81,13 +82,12 @@ class Builder {
     }
 
     // Start build
-    console.log(`[builder] [${event}] Running build.`);
     this.running = true;
     this.pendingBuild = false;
 
     // Run webpack
     let [err, res] = await runWebpackDev();
-    if (err) return console.error(`[builder] [${event}] ${err}`);
+    if (err) return
 
     // Move files
     await moveFiles();
@@ -96,7 +96,6 @@ class Builder {
     runTweego();
 
     // Complete build
-    console.log(`[builder] Build finished.`);
     this.running = false;
 
     // First build the server does not exist yet.
