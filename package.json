@@ -1,6 +1,6 @@
 {
   "name": "sugarcube-starter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modern Starter kit for SugarCube",
   "main": "index.js",
   "type": "module",
