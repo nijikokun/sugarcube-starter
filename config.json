@@ -69,7 +69,8 @@
       "darwin": {
         "name": "tweego",
         "x86": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x86.zip",
-        "x64": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x64.zip"
+        "x64": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x64.zip",
+        "arm64": "https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-macos-x64.zip"
       },
       "linux": {
         "name": "tweego",
