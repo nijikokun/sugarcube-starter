@@ -271,7 +271,7 @@ Third-Party Resources
 - [SjoerdHekking's Custom Macros](https://github.com/SjoerdHekking/custom-macros-sugarcube2)
 - [GwenTastic's Custom Macros](https://github.com/GwenTastic/Custom-Macros-for-Sugarcube)
 - [Cycy Custom Macros](https://github.com/cyrusfirheir/cycy-wrote-custom-macros)
-- [HiEv SugarCube Sample Code](https://qjzhvmqlzvoo5lqnrvuhmg-on.drv.tw/UInv/Sample_Code.html#Main%20Menu)
+- [HiEv SugarCube Sample Code](https://twine.hiev-heavy-ind.com/)
 - [Akjosch SugarCube Resources](https://github.com/Akjosch/sugarcube-modules)
 - [Mike Westhad SugarCube Resources](https://github.com/mikewesthad/twine-resources)
 - [HiEv Universal Inventory](https://github.com/HiEv/UInv)
