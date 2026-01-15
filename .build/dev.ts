@@ -3,6 +3,7 @@ import chokidar from 'chokidar';
 import { resolve } from 'path';
 import browserSync from 'browser-sync';
 import { runTweego } from './tweego.ts';
+import fs from 'fs';
 
 // Colors for console output
 const c = {
@@ -34,10 +35,56 @@ async function dev() {
 
     // Initial build
     log('dev', c.blue, 'Building...');
-    await build({ configFile: './vite.config.ts', logLevel: 'warn' });
+    let initialBuildFailed = false;
+    try {
+        await build({ configFile: './vite.config.ts', logLevel: 'warn' });
+    } catch (e) {
+        log('dev', c.magenta, 'Initial build failed, starting server anyway...');
+        initialBuildFailed = true;
+    }
+
+    // Ensure fallback index.html exists if tweego failed completely
+    const indexHtmlPath = resolve(cwd, 'dist/index.html');
+    if (!fs.existsSync(indexHtmlPath)) {
+        log('dev', c.yellow, 'Generating fallback index.html for error overlay...');
+        if (!fs.existsSync(resolve(cwd, 'dist'))) fs.mkdirSync(resolve(cwd, 'dist'));
+        fs.writeFileSync(indexHtmlPath, `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Build Error</title>
+  <link rel="stylesheet" href="styles/app.bundle.css">
+  <style>body { background: #111; color: #888; font-family: sans-serif; padding: 2rem; }</style>
+</head>
+<body>
+  <h2>Build Failed</h2>
+  <p>Check the console or error overlay for details.</p>
+  <script type="module" src="scripts/app.bundle.js"></script>
+</body>
+</html>`);
+        initialBuildFailed = true;
+    }
 
     // Start browser-sync
     const bs = browserSync.create();
+
+    // Debounced rebuild functions
+    const rebuildTweego = debounce(() => {
+        const result = runTweego();
+        if (result.success) {
+            bs.reload();
+            (bs as any).sockets.emit('tweego:success');
+        } else {
+            (bs as any).sockets.emit('tweego:error', {
+                message: result.error || 'Unknown error occurred during Tweego build.'
+            });
+        }
+    }, 100);
+
+    const rebuildAssets = debounce(() => {
+        bs.reload();
+    }, 100);
 
     await new Promise<void>((resolve) => {
         bs.init({
@@ -53,19 +100,13 @@ async function dev() {
             ],
         }, () => {
             log('server', c.green, 'http://localhost:4321');
+            if (initialBuildFailed) {
+                // Trigger rebuild to capture and emit error
+                setTimeout(rebuildTweego, 1000);
+            }
             resolve();
         });
     });
-
-    // Debounced rebuild functions
-    const rebuildTweego = debounce(() => {
-        runTweego();
-        bs.reload();
-    }, 100);
-
-    const rebuildAssets = debounce(() => {
-        bs.reload();
-    }, 100);
 
     // Watch patterns
     const watchPaths = [

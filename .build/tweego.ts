@@ -82,7 +82,7 @@ export function verifyInstall(): boolean {
     return true;
 }
 
-export function runTweego(): boolean {
+export function runTweego(): { success: boolean; error?: string } {
     const tweegoBinary = getTweegoBinaryPath();
 
     // Auto-install if missing
@@ -91,8 +91,9 @@ export function runTweego(): boolean {
         // Note: For sync context, we spawn the install script
         const result = spawn.sync('npx', ['tsx', '.build/tweego.ts', '--install'], { stdio: 'inherit' });
         if (result.status !== 0) {
-            console.error('[tweego] Install failed');
-            return false;
+            const error = '[tweego] Install failed';
+            console.error(error);
+            return { success: false, error };
         }
     }
 
@@ -114,12 +115,14 @@ export function runTweego(): boolean {
     });
 
     if (result.status !== 0) {
-        console.error('[tweego] Build failed:', result.stderr?.toString() || result.stdout?.toString());
-        return false;
+        // Capture both stdout and stderr as Tweego sometimes prints errors to stdout
+        const output = (result.stderr?.toString() || '') + (result.stdout?.toString() || '');
+        console.error('[tweego] Build failed:\n', output);
+        return { success: false, error: output };
     }
 
     console.log('[tweego] Done.\n');
-    return true;
+    return { success: true };
 }
 
 // CLI

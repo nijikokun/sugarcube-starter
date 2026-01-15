@@ -7,20 +7,23 @@
     "node_modules"
   ],
   "compilerOptions": {
-		"noImplicitReturns": true,
-		"noUnusedLocals": false,
-		"noUnusedParameters": false,
-		"strict": true,
-		"esModuleInterop": true,
-		"resolveJsonModule": true,
-		"module": "ES2015",
-		"target": "ES2015",
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "module": "ESNext",
+    "target": "ESNext",
     "allowJs": true,
     "moduleResolution": "node",
     "rootDir": "src/assets/app",
-		"lib": [
-			"ES2015",
-			"DOM"
-		],
+    "lib": [
+      "ES2015",
+      "DOM"
+    ],
+    "types": [
+      "vite/client"
+    ]
   }
 }
