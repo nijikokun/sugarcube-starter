@@ -177,6 +177,7 @@ Replace `YOUR_TAG_HERE` with your Google Analytics ID.
 - [SjoerdHekking's Custom Macros](https://github.com/SjoerdHekking/custom-macros-sugarcube2)
 - [GwenTastic's Custom Macros](https://github.com/GwenTastic/Custom-Macros-for-Sugarcube)
 - [Cycy Custom Macros](https://github.com/cyrusfirheir/cycy-wrote-custom-macros)
+- [Hituro's Macro Repository](https://github.com/hituro/hituro-makes-macros)
 - [HiEv SugarCube Sample Code](https://twine.hiev-heavy-ind.com/)
 - [Akjosch SugarCube Resources](https://github.com/Akjosch/sugarcube-modules)
 - [Mike Westhad SugarCube Resources](https://github.com/mikewesthad/twine-resources)
